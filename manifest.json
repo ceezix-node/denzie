@@ -1,11 +1,25 @@
 {
-    "name": "DENZIE AI",
-    "short_name": "DENZIE",
-    "description": "DENZIE AI — Supreme AI Architecture",
-    "start_url": "./Index.html",
-    "display": "standalone",
-    "background_color": "#080812",
-    "theme_color": "#1a1a2e",
-    "orientation": "portrait-primary",
-    "icons": []
+  "name": "DENZIE AI",
+  "short_name": "DENZIE",
+  "description": "DENZIE AI — intelligent local and cloud AI workspace.",
+  "start_url": "./Index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#12122a",
+  "background_color": "#090914",
+  "icons": [
+    {
+      "src": "./assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
 }
