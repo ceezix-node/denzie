@@ -1,0 +1,296 @@
+:root {
+    --bg: #080812;
+    --surface: #11111f;
+    --surface-2: #18182a;
+    --border: #292943;
+    --text: #f4f4ff;
+    --muted: #8d8da8;
+    --accent: #8b5cf6;
+    --accent-2: #06b6d4;
+    --danger: #ef4444;
+    --radius: 16px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    background:
+        radial-gradient(circle at 20% 10%, rgba(139, 92, 246, 0.14), transparent 30%),
+        radial-gradient(circle at 80% 90%, rgba(6, 182, 212, 0.10), transparent 30%),
+        var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    overflow: hidden;
+}
+
+button,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.header {
+    flex: 0 0 auto;
+    border-bottom: 1px solid var(--border);
+    background: rgba(8, 8, 18, 0.88);
+    backdrop-filter: blur(18px);
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 64px;
+    padding: 0 18px;
+}
+
+.logo {
+    margin: 0;
+    font-size: 1.1rem;
+    letter-spacing: 0.12em;
+}
+
+.cores-button,
+.icon-btn,
+.send-btn,
+#close-cores {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+}
+
+.cores-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 13px;
+    border-radius: 12px;
+}
+
+.cores-button:hover,
+.icon-btn:hover,
+.send-btn:hover {
+    border-color: var(--accent);
+}
+
+.chat-container {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+}
+
+.messages {
+    width: min(900px, 100%);
+    margin: 0 auto;
+    padding: 24px 18px 120px;
+}
+
+.system-message,
+.user-message,
+.ai-message {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.message-content {
+    flex: 1;
+    padding: 13px 15px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: rgba(17, 17, 31, 0.82);
+    line-height: 1.55;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.user-message {
+    flex-direction: row-reverse;
+}
+
+.user-message .message-content {
+    background: rgba(139, 92, 246, 0.12);
+}
+
+.avatar {
+    display: grid;
+    place-items: center;
+    flex: 0 0 38px;
+    width: 38px;
+    height: 38px;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    background: var(--surface-2);
+}
+
+.system-avatar {
+    border-color: var(--accent);
+}
+
+.input-area {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 14px 18px 18px;
+    background: linear-gradient(transparent, var(--bg) 30%);
+}
+
+.input-container {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    width: min(900px, 100%);
+    margin: 0 auto;
+    padding: 8px;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    background: rgba(17, 17, 31, 0.94);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.35);
+}
+
+.icon-btn,
+.send-btn {
+    display: grid;
+    place-items: center;
+    flex: 0 0 42px;
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+}
+
+.send-btn {
+    background: var(--accent);
+    border-color: var(--accent);
+}
+
+#user-input {
+    flex: 1;
+    min-height: 42px;
+    max-height: 160px;
+    padding: 11px 8px;
+    resize: none;
+    outline: none;
+    border: 0;
+    background: transparent;
+    color: var(--text);
+}
+
+#user-input::placeholder {
+    color: var(--muted);
+}
+
+.cores-panel {
+    position: fixed;
+    z-index: 20;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: min(360px, 90vw);
+    padding: 18px;
+    border-left: 1px solid var(--border);
+    background: rgba(10, 10, 20, 0.97);
+    box-shadow: -20px 0 60px rgba(0, 0, 0, 0.4);
+    overflow-y: auto;
+}
+
+.cores-panel.hidden,
+.install-prompt.hidden {
+    display: none;
+}
+
+.cores-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+}
+
+.cores-header h2 {
+    margin: 0;
+    font-size: 1.05rem;
+}
+
+#close-cores {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+}
+
+.core {
+    padding: 14px;
+    margin-bottom: 10px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--surface);
+}
+
+.core strong {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.core span {
+    color: var(--muted);
+    font-size: 0.88rem;
+}
+
+.install-prompt {
+    position: fixed;
+    z-index: 30;
+    right: 16px;
+    bottom: 90px;
+    width: min(360px, calc(100vw - 32px));
+    padding: 16px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: var(--surface);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+}
+
+.install-prompt p {
+    margin-top: 0;
+}
+
+.install-prompt button {
+    padding: 9px 12px;
+    margin-right: 6px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--surface-2);
+    color: var(--text);
+}
+
+@media (max-width: 600px) {
+    .header-content {
+        padding: 0 12px;
+    }
+
+    .messages {
+        padding-right: 12px;
+        padding-left: 12px;
+    }
+
+    .cores-button {
+        font-size: 0.82rem;
+    }
+}
